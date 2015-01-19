@@ -23,7 +23,11 @@ end
 
 def computer_picks(b)
   pos = empty_positions(b).sample
-  b[pos] = 'O'
+  if b[5] == ' '
+    b[5] = 'O'
+  else
+    b[pos] = 'O'
+  end
 end
 
 def check_winner(b)
