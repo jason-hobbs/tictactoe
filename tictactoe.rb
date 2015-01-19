@@ -1,11 +1,5 @@
 require 'pry'
 
-class Array
-  def same_values?
-    self.uniq.length == 1
-  end
-end
-
 def draw_board(b)
   system 'clear'
   puts ""
@@ -21,7 +15,8 @@ def empty_positions(b)
 end
 
 def player_picks(b)
-  puts "Pick a position (1..9)"
+  open = empty_positions(b)
+  puts "Pick a position #{open}"
   pos = gets.chomp.to_i
   b[pos] = 'X'
 end
@@ -57,7 +52,6 @@ begin
   #binding.pry
 end until winner || empty_positions(board).empty?
 
-#winner = check_winner(board)
 if winner
   puts "#{winner} won!"
 else
